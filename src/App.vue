@@ -54,6 +54,6 @@ html, body {
   z-index -1
   background url('./assets/preview.jpg') 0 0 no-repeat
   background-size cover
-  filter blur(30px)
+  filter blur(20px)
 }
 </style>

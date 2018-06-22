@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Entries from '@/pages/entries'
-import Calendar from '@/pages/calendar'
+// import Entries from '@/pages/entries'
+// import Calendar from '@/pages/calendar'
+// import Diary from '@/pages/diary'
 
 Vue.use(Router)
 
@@ -22,12 +23,17 @@ export default new Router({
     {
       path: '/entries',
       name: 'Entries',
-      component: Entries
+      component: () => import('@/pages/entries')
     },
     {
       path: '/calendar',
       name: 'Calendar',
-      component: Calendar
+      component: () => import('@/pages/calendar')
+    },
+    {
+      path: '/diary',
+      name: 'Diary',
+      component: () => import('@/pages/diary')
     }
   ]
 })

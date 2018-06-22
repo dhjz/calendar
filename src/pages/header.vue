@@ -1,14 +1,20 @@
 <template>
   <div class="header">
     <div class="nav">
-      <template v-for="(item,index) in nav">
-        <div 
-        :key="item" 
+      <template v-for="item in nav">
+        <router-link
+        :key="item"
+        tag="div"
+        :to="item.toLocaleLowerCase()"
+        >
+        {{item}}
+        <!-- <div
         :class="{active:index===activeIndex}"
         @click="navChange(index)"
         >
-          <router-link :to="item.toLocaleLowerCase()">{{item}}</router-link>
-        </div>
+          {{item}}
+        </div> -->
+        </router-link>
       </template>
     </div>
     <div class="bread">{{nav[activeIndex]}}</div>
@@ -24,13 +30,14 @@ export default {
     }
   },
   methods: {
-    navChange (index) {
-      this.activeIndex = index
-    }
+
   }
 }
 </script>
 <style lang="stylus" scoped>
+.router-link-active
+  background #2980b9
+  color #fff
 .header
   padding-top 30px
   margin-bottom 2px
@@ -46,12 +53,6 @@ export default {
     flex 1
     padding 12px 10px
     border 1.5px solid #2980b9;/*no*/
-    a
-      display block
-    &.active
-      background #2980b9
-      a
-        color #fff
     &:first-child
       border-radius 10px 0 0 10px
     &:last-child
