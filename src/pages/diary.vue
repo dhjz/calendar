@@ -9,7 +9,12 @@
     </div>
     <div class="main">
       <input type="text" placeholder="标题">
-      <textarea placeholder="日记"></textarea>
+      <textarea 
+        wrap="hard"
+        v-model="textareaMsg"
+        placeholder="日记"
+      ></textarea>
+      <p class="count"><span>{{countNum}}字</span></p>
     </div>
     <div class="footer">
       <div class="select-option">
@@ -28,11 +33,19 @@ export default {
   name: 'diary',
   data () {
     return {
-
+      textareaMsg: ''
     }
   },
   mounted () {
     
+  },
+  computed: {
+    countNum () {
+      return this.textareaMsg.length || 0
+    }
+  },
+  methods: {
+
   }
 }
 </script>
@@ -58,18 +71,26 @@ opacityBkg = rgba(255,255,255,.8)
     flex 1
     flex-direction column
     font-size 32px;/*px*/
+    .count
+      width 100%
+      color #999
+      background opacityBkg
+      text-align right
+      font-size 30px;/*px*/
     input
       padding 20px 15px
       background opacityBkg
       font-weight 700
       outline none
       border none
+      border-bottom 1.5px solid #5e5e5e
     textarea
       flex 1
       overflow-y auto
       -webkit-overflow-scrolling touch
       background opacityBkg
       outline none
+      border none
       padding 15px
   .footer
     display flex
@@ -98,7 +119,7 @@ opacityBkg = rgba(255,255,255,.8)
   width 48px
   height 48px
   margin-right 30px
-  background-size 48px 48px  
+  background-size 48px 48px
 .weather
   background url(../assets/weather/sun.png) 0 0 no-repeat
 .facial
