@@ -32,11 +32,10 @@ export default {
 .calendar
   display flex
   flex-direction column
-  height 100% 
+  height 100%
   padding 70px 40px
-  box-sizing border-box
   .wrap
-    height 100%
+    flex 1
     border 2px solid #fff
     border-radius 5px
 
