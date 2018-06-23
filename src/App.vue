@@ -3,9 +3,15 @@
     <!-- <div class="bg"></div> -->
     <Header></Header>
     <transition>
-      <Info></Info>
+      <Info 
+        v-if="showInfo"
+        @closeInfo="handleCloseInfo"
+      ></Info>
     </transition>
-    <router-view></router-view>
+    <router-view 
+      @showInfo="handleShowInfo"
+    >
+    </router-view>
   </div>
 </template>
 
@@ -24,12 +30,18 @@ export default {
     Info
   },
   mounted () {
+
   },
   computed: {
     
   },
   methods: {
-    
+    handleCloseInfo (value) {
+      this.showInfo = value
+    },
+    handleShowInfo (value) {
+      this.showInfo = value
+    }
   }
 }
 </script>

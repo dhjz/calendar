@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     showDetail () {
-      this.bus.$emit('entries', true)
+      this.$emit('showInfo', true)
     }
   }
 }

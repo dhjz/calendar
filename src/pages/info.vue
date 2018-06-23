@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="showInfo"
     class="infoPage" 
     :style="{height:deviceHeight + 'px'}"
     >
@@ -48,7 +47,7 @@ export default {
   name: 'info',
   data () {
     return {
-      showInfo: false
+      // showInfo: false,
     }
   },
   computed: {
@@ -57,13 +56,11 @@ export default {
     }
   },
   mounted () {
-    this.bus.$on('entries', value => {
-      this.showInfo = value
-    })
+
   },
   methods: {
     closeInfo () {
-      this.showInfo = false
+      this.$emit('closeInfo', false)
     },
     prevPage () {
       console.log('prevPage')
