@@ -7,13 +7,7 @@
         tag="div"
         :to="item.toLocaleLowerCase()"
         >
-        {{item}}
-        <!-- <div
-        :class="{active:index===activeIndex}"
-        @click="navChange(index)"
-        >
           {{item}}
-        </div> -->
         </router-link>
       </template>
     </div>
@@ -55,8 +49,10 @@ export default {
     border 1.5px solid #2980b9;/*no*/
     &:first-child
       border-radius 10px 0 0 10px
+      border-right none
     &:last-child
       border-radius 0 10px 10px 0
+      border-left none
 .bread
   color #2980b9
   font-size 40px

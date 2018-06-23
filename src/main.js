@@ -9,6 +9,7 @@ import FastClick from 'fastclick'
 import './style/base.styl'
 
 Vue.config.productionTip = false
+
 Vue.prototype.$http = axios
 // 总线
 Vue.prototype.bus = new Vue()

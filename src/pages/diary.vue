@@ -30,13 +30,15 @@ export default {
     return {
 
     }
+  },
+  mounted () {
+    
   }
 }
 </script>
 
 <style lang="stylus" scoped>
 opacityBkg = rgba(255,255,255,.8)
-
 .diary
   height 100%
   display flex
@@ -60,6 +62,8 @@ opacityBkg = rgba(255,255,255,.8)
       padding 20px 15px
       background opacityBkg
       font-weight 700
+      outline none
+      border none
     textarea
       flex 1
       overflow-y auto
@@ -94,11 +98,9 @@ opacityBkg = rgba(255,255,255,.8)
   width 48px
   height 48px
   margin-right 30px
-  
+  background-size 48px 48px  
 .weather
   background url(../assets/weather/sun.png) 0 0 no-repeat
-  background-size 48px 48px
 .facial
   background url(../assets/facial/happy.png) 0 0 no-repeat
-  background-size 48px 48px
 </style>

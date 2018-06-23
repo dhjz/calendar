@@ -79,6 +79,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.v-enter-active,.v-leave-active
+  transition all 1.25s cubic-bezier(0.5, 0.8, 0.8, 1.0)
+.v-enter,.v-leave-to
+  opacity 0
+  transform:rotateY(180deg) scaleY(0) translate3d(0,0,0)
+
 .infoPage
   position absolute
   padding 40px
@@ -88,6 +94,7 @@ export default {
   left 0
   right 0
   z-index 999
+  // transform-style preserve-3d
   .info-wrap
     height 100%
     border-radius 20px

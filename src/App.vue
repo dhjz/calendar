@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="bg"></div>
+    <!-- <div class="bg"></div> -->
     <Header></Header>
     <transition>
       <Info></Info>
@@ -45,12 +45,15 @@ html, body {
   height 100%
 }
 
-.bg {
+#app:before {
+  content ''
+  display block
   position absolute
   left 0
   right 0
+  top 0
+  bottom 0
   margin auto
-  height 100vh
   z-index -1
   background url('./assets/preview.jpg') 0 0 no-repeat
   background-size cover
