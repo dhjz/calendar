@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <!-- <div class="bg"></div> -->
     <Header></Header>
     <transition>
-      <Info 
-        v-if="showInfo"
+      <Info
+        v-show="showInfo"
         @closeInfo="handleCloseInfo"
       ></Info>
     </transition>
-    <router-view 
-      @showInfo="handleShowInfo"
-    >
-    </router-view>
+    <transition name="router" mode="out-in">
+      <router-view 
+        @showInfo="handleShowInfo"
+      >
+      </router-view>
+    </transition>
   </div>
 </template>
 
@@ -46,6 +47,15 @@ export default {
 }
 </script>
 <style lang="stylus">
+.router-enter-active
+  transition all .5s
+.router-leave-active
+  transition all .25s
+.router-enter
+  transform translate(100%)
+.router-leave-to
+  transform translate(-100%)
+
 html, body {
   width 100%
   height 100%
@@ -55,6 +65,7 @@ html, body {
   display flex
   flex-direction column
   height 100%
+  overflow hidden
 }
 
 #app:before {

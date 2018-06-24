@@ -9,7 +9,6 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   scrollBehavior (to, from, savedPosition) {
-    // console.log(to, from, savedPosition)
     return savedPosition || {x: 0, y: 0}
   },
   parseQuery (query) {

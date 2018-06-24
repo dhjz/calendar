@@ -6,31 +6,14 @@
       <div class="info-wrap">
         <div class="header">
           <div class="date">
-            <div class="year">2016年 · 十二月</div>
-            <div class="day">5</div>
-            <div class="week">星期二 10:20</div>
+            <div class="year">{{infoData.year}}年 · {{infoData.month}}月</div>
+            <div class="day">{{infoData.day}}</div>
+            <div class="week">{{infoData.week}} {{infoData.time}}</div>
           </div>
           <div class="close" @click="closeInfo">X</div>
         </div>
-        <div class="content">
-          <p>昨晚又做了同一个梦。</p>
-          <p>我慢慢地知道了发生了什么。</p>
-          <p>不定期和乡下的三叶交换身体。</p>
-          <p>每周2至3次，没有征兆。</p>
-          <p>总是在睡觉时交换。</p>
-          <p>原因不明。</p>
-          <p>昨晚又做了同一个梦。</p>
-          <p>我慢慢地知道了发生了什么。</p>
-          <p>不定期和乡下的三叶交换身体。</p>
-          <p>每周2至3次，没有征兆。</p>
-          <p>总是在睡觉时交换。</p>
-          <p>原因不明。</p>
-          <p>昨晚又做了同一个梦。</p>
-          <p>我慢慢地知道了发生了什么。</p>
-          <p>不定期和乡下的三叶交换身体。</p>
-          <p>每周2至3次，没有征兆。</p>
-          <p>总是在睡觉时交换。</p>
-          <p>原因不明。</p>
+        <div class="content" v-html="infoData.info">
+          
         </div>
         <div class="footer">
           <div class="page">
@@ -47,7 +30,7 @@ export default {
   name: 'info',
   data () {
     return {
-      // showInfo: false,
+      infoData: ''
     }
   },
   computed: {
@@ -55,8 +38,17 @@ export default {
       return (document.documentElement.clientHeight)
     }
   },
+  created () {
+    this.bus.$on('info', value => {
+      this.$http.get('/api/info_' + value + '.json')
+      .then(res => {
+        console.log(res)
+        this.infoData = res.data.data || {}
+      })
+    })
+  },
   mounted () {
-
+    
   },
   methods: {
     closeInfo () {

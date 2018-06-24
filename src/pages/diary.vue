@@ -37,7 +37,7 @@ export default {
     }
   },
   mounted () {
-    
+    // console.log('diary')
   },
   computed: {
     countNum () {

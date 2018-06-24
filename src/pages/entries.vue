@@ -3,7 +3,7 @@
     <template v-for="item of entries">
       <div class="item"
       :key="item.id"
-      @click="showDetail"
+      @click="showDetail(item.id)"
       >
         <div class="date">
           <div class="day">{{item.day}}</div>
@@ -32,14 +32,17 @@ export default {
     }
   },
   created () {
+    // console.log('entries')
     this.$http.get('/api/entries.json')
     .then(res => {
       this.entries = res.data.data
     })
   },
   methods: {
-    showDetail () {
+    showDetail (id) {
       this.$emit('showInfo', true)
+      // console.log(id)
+      this.bus.$emit('info', id)
     }
   }
 }
